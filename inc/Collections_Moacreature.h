@@ -17,6 +17,7 @@ public:
     virtual ~Collections_Moacreature();
     void lister_creature();
     void obtient(Moacreature* moa);
+    void perd(Moacreature* moa);
 };
 
 

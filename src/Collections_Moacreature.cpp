@@ -3,6 +3,9 @@
 //
 
 #include "../inc/Collections_Moacreature.h"
+
+#include <algorithm>
+
 #include "../inc/Moacreature.h"
 #include <iostream>
 #include <ostream>
@@ -54,6 +57,26 @@ void Collections_Moacreature::obtient(Moacreature* MOA) {
     Collections_Moacreature::collection.push_back(MOA);
     std::cout << "Nouvelle creature ajoutee a la liste : "<< MOA->getName() << std::endl;
     //MOA->displayInfo();
+}
+void Collections_Moacreature::perd(Moacreature* MOA) {
+    if (MOA == nullptr) {
+        std::cout << "Erreur recuperation creature "<<std::endl;
+        return;
+    }
+    if (Collections_Moacreature::trouver_la_creature(MOA->getId()) == 0) {
+        auto it = std::find_if(collection.begin(), collection.end(),
+    [&](Moacreature* m) {
+        return m->getName() == MOA->getName();
+    });
+
+        if (it != collection.end()) {
+            int index = std::distance(collection.begin(), it);
+            //collection.erase(index);
+            std::cout << MOA->getName() << " a ete relachee dans la nature !" << std::endl;
+        }
+        return;
+    }
+
 }
 
 Collections_Moacreature::~Collections_Moacreature() {

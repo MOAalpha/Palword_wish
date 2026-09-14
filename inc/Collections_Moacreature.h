@@ -9,8 +9,8 @@
 #include "Moacreature.h"
 
 class Collections_Moacreature {
-private:
-    std::vector<Moacreature> collection;
+protected:
+    std::vector<Moacreature*> collection;
 public:
     virtual int trouver_la_creature(int id);
     virtual int trouver_la_creature(std::string name);

@@ -8,8 +8,12 @@ FetchContent_MakeAvailable(SFML)
 add_executable(Palword_wish src/main.cpp
         src/moacreature.cpp
         inc/moacreature.h
-        inc/Collections_Moacreature.cpp
-        inc/Collections_Moacreature.h)
+        src/Collections_Moacreature.cpp
+        inc/Collections_Moacreature.h
+        src/liste_de_Moacreature.cpp
+        inc/liste_de_Moacreature.h
+        src/liste_personnelle_moacreature.cpp
+        inc/liste_personnelle_moacreature.h)
 target_link_libraries(Palword_wish
         sfml-graphics
         sfml-window

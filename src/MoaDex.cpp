@@ -2,20 +2,20 @@
 // Created by mathe on 14/09/2026.
 //
 
-#include "../inc/dico_creature.h"
+#include "../inc/MoaDex.h"
 
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <vector>
 using namespace std;
-dico_creature* dico_creature::instance = nullptr;
+MoaDex* MoaDex::instance = nullptr;
 
 /**
  * Constructeur de la classe
  * @param fileName Nom du fichier ou sont stockes les creatures, attendu au format CSV
  */
-dico_creature::dico_creature(const string fileName):Collections_Moacreature() {
+MoaDex::MoaDex(const string fileName):Collections_Moacreature() {
 
     std::cout << "*** Constructeur du MoaDex ***" << std::endl;
 
@@ -55,10 +55,10 @@ dico_creature::dico_creature(const string fileName):Collections_Moacreature() {
  * @param nom_de_fichier designe le nom du fichier où sont stockes les creatures, fichier suppose sous format CSV.
  * @return une reference sur l'instance si elle existait deja, et en cree une sinon.
  */
-dico_creature *dico_creature::get_instance(const string &nom_de_fichier) {
+MoaDex *MoaDex::get_instance(const string &nom_de_fichier) {
     if (instance == nullptr) {
         if (instance == nullptr) {
-            instance = new dico_creature(nom_de_fichier);
+            instance = new MoaDex(nom_de_fichier);
         }
     }
     return instance;
@@ -67,13 +67,13 @@ dico_creature *dico_creature::get_instance(const string &nom_de_fichier) {
 /**
  * Permet de retrouver dans la **collection** de Moacreature une creature par son nom (reference sur string)
  * @param nom_de_creature le nom de la creature recherchee
- * @return une copie de la creature trouvee, ou nullptr le cas echeant.
+ * @return une copie de la première creature trouvee dont le nom commence par nom_de_creature, ou nullptr le cas echeant.
  *
  *
  */
-Moacreature* dico_creature::obtenir_moacreature(const string& nom_de_creature) {
+Moacreature* MoaDex::chercher_moacreature(const string& nom_de_creature) {
     for ( Moacreature* moacreature : collection) {
-        if (moacreature->getName() == nom_de_creature) {
+        if ((moacreature->getName().find(nom_de_creature) != std::string::npos)) {
             return new Moacreature(*moacreature);
         }
     }
@@ -88,7 +88,7 @@ Moacreature* dico_creature::obtenir_moacreature(const string& nom_de_creature) {
  *
  *
  */
-Moacreature* dico_creature::obtenir_moacreature(const int id) {
+Moacreature* MoaDex::chercher_moacreature(const int id) {
     for ( Moacreature* moacreature : collection) {
         if (moacreature->getId() == id) {
             return new Moacreature(*moacreature);

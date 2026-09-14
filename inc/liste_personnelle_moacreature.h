@@ -1,0 +1,13 @@
+//
+// Created by mathe on 14/09/2026.
+//
+
+#ifndef PALWORD_WISH_LISTE_PERSONNELLE_MOACREATURE_H
+#define PALWORD_WISH_LISTE_PERSONNELLE_MOACREATURE_H
+
+
+class liste_personnelle_moacreature {
+};
+
+
+#endif //PALWORD_WISH_LISTE_PERSONNELLE_MOACREATURE_H

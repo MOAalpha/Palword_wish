@@ -21,10 +21,12 @@ class Moacreature {
 private:
     int id;
     string name;
+    int evolution=0;
     double attack;
     double defense;
     int generation;
     double hitPoint;
+    double hitPointMax;
 
 
 public:

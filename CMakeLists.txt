@@ -10,8 +10,8 @@ add_executable(Palword_wish src/main.cpp
         inc/moacreature.h
         src/Collections_Moacreature.cpp
         inc/Collections_Moacreature.h
-        src/liste_de_Moacreature.cpp
-        inc/liste_de_Moacreature.h
+        src/dico_creature.cpp
+        inc/dico_creature.h
         src/liste_personnelle_moacreature.cpp
         inc/liste_personnelle_moacreature.h)
 target_link_libraries(Palword_wish

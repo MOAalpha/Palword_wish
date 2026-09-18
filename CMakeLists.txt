@@ -13,7 +13,10 @@ add_executable(Palword_wish src/main.cpp
         src/MoaDex.cpp
         inc/MoaDex.h
         src/mon_MoaDex.cpp
-        inc/mon_MoaDex.h)
+        inc/mon_MoaDex.h
+        Ressources/Ressources.h
+        src/GUI.cpp
+        inc/GUI.h)
 target_link_libraries(Palword_wish
         sfml-graphics
         sfml-window

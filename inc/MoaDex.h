@@ -14,17 +14,19 @@ using namespace std;
  * Elle recupere cette liste depuis un fichier CSV.
  */
 class MoaDex : public Collections_Moacreature {
-    private:
+private:
     string nom_de_fichier_;
     static MoaDex *instance;
     MoaDex(const string nom_de_fichier);
+
 
 public:
     MoaDex(MoaDex &autre_tentative) = delete;
     void operator=(const MoaDex &autre_tentative) = delete;
     static MoaDex *get_instance(const string& nom_de_fichier);
-    Moacreature* chercher_moacreature(const string& nom_de_moacreature);
-    Moacreature* chercher_moacreature(const int id);
+    Moacreature* chercher_moacreature(std::string nom_de_moacreature) override;
+    Moacreature* chercher_moacreature(int id) override;
+
 };
 
 

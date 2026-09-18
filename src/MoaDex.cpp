@@ -71,7 +71,7 @@ MoaDex *MoaDex::get_instance(const string &nom_de_fichier) {
  *
  *
  */
-Moacreature* MoaDex::chercher_moacreature(const string& nom_de_creature) {
+Moacreature* MoaDex::chercher_moacreature(std::string nom_de_creature) {
     for ( Moacreature* moacreature : collection) {
         if ((moacreature->getName().find(nom_de_creature) != std::string::npos)) {
             return new Moacreature(*moacreature);
@@ -96,3 +96,5 @@ Moacreature* MoaDex::chercher_moacreature(const int id) {
     }
     return nullptr;
 }
+
+

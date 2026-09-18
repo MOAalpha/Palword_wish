@@ -10,6 +10,7 @@
 #include <iostream>
 #include <ostream>
 
+
 int Collections_Moacreature::trouver_la_creature(int id) {
     for ( Moacreature* MOA : Collections_Moacreature::collection) {
         if (MOA->getId() == id) {
@@ -33,6 +34,7 @@ int Collections_Moacreature::trouver_la_creature(string name) {
     return -1;
 }
 
+
 void Collections_Moacreature::lister_creature() {
     if (Collections_Moacreature::collection.empty()) {
         std::cout << "Aucune creature ! Terrible... "<<std::endl;
@@ -41,43 +43,13 @@ void Collections_Moacreature::lister_creature() {
 
     std::cout << "Voici la liste des creatures : "<<std::endl;
     for (Moacreature* MOA : Collections_Moacreature::collection) {
-        std::cout << MOA->getName() << " " << MOA->getId() << std::endl;
-    }
-}
-
-void Collections_Moacreature::obtient(Moacreature* MOA) {
-    if (MOA == nullptr) {
-        std::cout << "Erreur obtention "<<std::endl;
-        return;
-    }
-    if (Collections_Moacreature::trouver_la_creature(MOA->getId()) == 0) {
-        std::cout << "Existe deja !" << std::endl;
-        return;
-    }
-    Collections_Moacreature::collection.push_back(MOA);
-    std::cout << "Nouvelle creature ajoutee a la liste : "<< MOA->getName() << std::endl;
-    //MOA->displayInfo();
-}
-void Collections_Moacreature::perd(Moacreature* MOA) {
-    if (MOA == nullptr) {
-        std::cout << "Erreur recuperation creature "<<std::endl;
-        return;
-    }
-    if (Collections_Moacreature::trouver_la_creature(MOA->getId()) == 0) {
-        auto it = std::find_if(collection.begin(), collection.end(),
-    [&](Moacreature* m) {
-        return m->getName() == MOA->getName();
-    });
-
-        if (it != collection.end()) {
-            int index = std::distance(collection.begin(), it);
-            //collection.erase(index);
-            std::cout << MOA->getName() << " a ete relachee dans la nature !" << std::endl;
+        if (MOA != nullptr) {
+            std::cout << MOA->getName() << " " << MOA->getId() << std::endl;
         }
-        return;
     }
-
 }
+
+
 
 Collections_Moacreature::~Collections_Moacreature() {
     std::cout << "Collection supprimee! "<<std::endl;

@@ -12,12 +12,15 @@ class Collections_Moacreature {
 protected:
     std::vector<Moacreature*> collection;
 public:
-    virtual int trouver_la_creature(int id);
-    virtual int trouver_la_creature(std::string name);
+    virtual Moacreature* chercher_moacreature(int id)=0;
+    virtual Moacreature* chercher_moacreature(std::string nom_de_creature)=0;
     virtual ~Collections_Moacreature();
     void lister_creature();
     void obtient(Moacreature* moa);
     void perd(Moacreature* moa);
+
+    virtual int trouver_la_creature(int id);
+    virtual int trouver_la_creature(std::string nom_de_creature);
 };
 
 

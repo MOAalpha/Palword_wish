@@ -25,34 +25,30 @@ private:
     double attack;
     double defense;
     int generation;
-    double hitPoint;
     double hitPointMax;
+    double hitPoint=hitPointMax;
 
 
 public:
-    static int total_Moacreature; //pas bien, variable global
-
-    //Constructeur
-    Moacreature(int id, string name, double hitPoint, double attack, double defense, int generation );
-
+    static int total_Moacreature;
+    Moacreature(int id, string name, double hitPointMax, double attack, double defense, int generation );
     Moacreature()=delete;
     ~Moacreature();
-
-    Moacreature(string name, int generation);
     Moacreature(const Moacreature& autre_Moacreature);
 
     void displayInfo() const;
     int getId() const;
     string getName() const;
     double getHitPoint() const;
+    double getHitPointMax() const;
     double getAttack() const;
     double getDefense() const;
-    double getGeneration() const;
+    int getGeneration() const;
     int getTotalCreature() const;
 
     void setHitPoint(double hitPoint);
 
-    void attaque_simple(Moacreature& cible);
+    int attaque_simple(Moacreature& cible);
     void total_creature();
 
 };

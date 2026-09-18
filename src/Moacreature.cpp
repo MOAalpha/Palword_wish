@@ -9,13 +9,11 @@ using namespace std;
 
 int Moacreature::total_Moacreature = 0; //juste l'initialisation, pas une variable globale.
 
-Moacreature::Moacreature(int id, string name, double hitPoint, double attack, double defense, int generation):
-id(id), name(name), hitPoint(hitPoint), attack(attack), defense(defense), generation(generation) {total_Moacreature++;}
+Moacreature::Moacreature(int id, string name, double hitPointMax, double attack, double defense, int generation):
+id(id), name(name), hitPoint(hitPointMax), hitPointMax(hitPointMax), attack(attack), defense(defense), generation(generation) {total_Moacreature++;}
 
-Moacreature::Moacreature(string name, int generation) : name(name), generation(generation) {total_Moacreature++;}
-
-Moacreature::Moacreature(const Moacreature& autre_Moacreature): name(autre_Moacreature.name), generation(autre_Moacreature.generation), id(autre_Moacreature.id),hitPoint(1),attack(1),defense(1)
-{ std::cout << "Moacreature " << name << " copie "<< std::endl; };
+Moacreature::Moacreature(const Moacreature& autre_Moacreature): name(autre_Moacreature.getName()), generation(autre_Moacreature.getGeneration()), id(autre_Moacreature.getId()),hitPoint(autre_Moacreature.getHitPoint()), hitPointMax(autre_Moacreature.hitPointMax), attack(autre_Moacreature.getAttack()),defense(autre_Moacreature.getDefense())
+{};
 
 Moacreature::~Moacreature() {
     cout << "Activation du destructeur en cours !" << endl;
@@ -41,12 +39,16 @@ double Moacreature::getAttack() const {
 double Moacreature::getDefense() const {
     return Moacreature::defense;
 }
-double Moacreature::getGeneration() const {
+int Moacreature::getGeneration() const {
     return Moacreature::generation;
 }
 
 double Moacreature::getHitPoint() const {
     return Moacreature::hitPoint;
+}
+
+double Moacreature::getHitPointMax() const {
+    return Moacreature::hitPointMax;
 }
 
 string Moacreature::getName() const {
@@ -61,14 +63,25 @@ void Moacreature::setHitPoint(double nouveau_hitPoint) {
     Moacreature::hitPoint = nouveau_hitPoint;
 }
 
-void Moacreature::attaque_simple(Moacreature &cible) {
+/**
+* Attaque la créature cible si l'attaque est supérieure à la défense de la cible.
+ * @param cible
+ * @return 0 si l'attaque a été encaissée, 1 si l'attaque a tué la creature.
+ */
+int Moacreature::attaque_simple(Moacreature &cible) {
     if (getAttack()>cible.getDefense()) {
+        std::cout << std::endl;
+        std::cout << "Attaque de " << cible.getName() << " par " << this->getName() <<" de degats " <<this->getAttack()-cible.getDefense() << std::endl;
+        std::cout << std::endl;
         cible.setHitPoint(cible.getHitPoint() -(getAttack()-cible.getDefense()));
     }
     if (cible.getHitPoint() <= 0) {
         std::cout << "Cible " << cible.name << " eliminee ! Mission echouee ! (Maltraitance animale...) ";
         std::cout << std::endl;
+        cible.setHitPoint(1);
+        return 1;
     }
+    return 0;
 }
 
 void Moacreature::total_creature() {

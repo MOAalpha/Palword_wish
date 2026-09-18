@@ -8,13 +8,20 @@
 #include <vector>
 
 #include "MoaDex.h"
+#include "../Ressources/Ressources.h"
 
 class mon_MoaDex : public Collections_Moacreature {
 private:
-    MoaDex* dico = MoaDex::get_instance("../background/pokedex.csv");
+    MoaDex* dico = MoaDex::get_instance(MOADEX_FILE);
 public:
+    mon_MoaDex()= default;
     void obtenir_creature(string nom_de_moacreature);
     void supprimer_creature(string nom_de_moacreature);
+    Moacreature* chercher_moacreature(string nom_de_moacreature) override;
+    Moacreature* chercher_moacreature(int id) override;
+    int regenerer_moacreature(string nom_de_moacreature);
+
+
 };
 
 

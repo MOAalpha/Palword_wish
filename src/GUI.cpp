@@ -22,19 +22,19 @@ int GUI::afficher_fond() {
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
-            if (event.type == sf::Event::KeyReleased) {
+            if (event.type == sf::Event::KeyPressed) {
                 switch (event.key.code) {
-                    case sf::Keyboard::Z || sf::Keyboard::Up :
+                    case sf::Keyboard::Z :
                         premiere_creature.setPosition(premiere_creature.getPosition().x, premiere_creature.getPosition().y-10);
                         break;
-                    case sf::Keyboard::S || sf::Keyboard::Down :
+                    case sf::Keyboard::S :
                         premiere_creature.setPosition(premiere_creature.getPosition().x, premiere_creature.getPosition().y+10);
                         break;
-                    case sf::Keyboard::Q || sf::Keyboard::Left :
-                        premiere_creature.setPosition(premiere_creature.getPosition().x+10, premiere_creature.getPosition().y);
-                        break;
-                    case sf::Keyboard::D || sf::Keyboard::Right :
+                    case sf::Keyboard::Q :
                         premiere_creature.setPosition(premiere_creature.getPosition().x-10, premiere_creature.getPosition().y);
+                        break;
+                    case sf::Keyboard::D :
+                        premiere_creature.setPosition(premiere_creature.getPosition().x+10, premiere_creature.getPosition().y);
                         break;
 
                 }

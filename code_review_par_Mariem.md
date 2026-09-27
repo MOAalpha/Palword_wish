@@ -4,7 +4,7 @@ Date : 17 septembre 2026
 
 ## Points positifs
 
-- Le code est séparé entre les interfaces (`inc/`) et les implémentations (`src/`).
+- Le code est séparé entre les interfaces (`Creature`) et les implémentations (`Creature`).
 - La classe `Moacreature` possède un constructeur, un destructeur et une méthode d'attaque. La règle actuellement implémentée est : les dégâts sont égaux à `attaque - défense` lorsque l'attaque est strictement supérieure à la défense ; sinon, aucun dégât n'est infligé.
 - `MoaDex` lit un fichier CSV et renvoie une copie d'une créature grâce au constructeur de copie, ce qui va dans le sens de l'extraction d'un clone demandée par l'énoncé.
 - Le constructeur de `MoaDex` est privé et les constructeurs/copies d'instance sont interdits : l'intention d'implémenter un Singleton est présente.

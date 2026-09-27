@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "MoaDex.h"
-#include "../Ressources/Ressources.h"
+#include "../../Ressources/Ressources.h"
 
 class mon_MoaDex : public Collections_Moacreature {
 private:

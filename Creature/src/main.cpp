@@ -2,10 +2,11 @@
 
 #include "../inc/Moacreature.h"
 #include "../inc/Collections_Moacreature.h"
-#include "../inc/GUI.h"
+#include "../../Render/Inc/GUI.h"
 #include "../inc/MoaDex.h"
 #include "../inc/mon_MoaDex.h"
-#include "../Ressources/Ressources.h"
+#include "../../Ressources/Ressources.h"
+#include "../../Engine/Inc/Welcome.h"
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 /**
  * Ce main est actuellement un ensemble de tests dont les resultats sont visibles dans la console
@@ -73,9 +74,12 @@ int main() {
     mon_MoaDex Android = mon_MoaDex();
     mon_MoaDex Android2 = mon_MoaDex();
 
-    GUI interface_graphique = GUI();
-    interface_graphique.afficher_fond();
+    //GUI interface_graphique = GUI();
+    //interface_graphique.afficher_fond();
 
-
+    auto* gameEngine = new GameEngine();
+    auto semoule = new Welcome(gameEngine);
+    gameEngine->getRenderEngine()->run();
+    //gameEngine->getRenderEngine()->addPicture("../background/img.png");
     return 0;
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 
 #include "../inc/Moacreature.h"
 #include "../inc/Collections_Moacreature.h"
@@ -78,8 +79,15 @@ int main() {
     //interface_graphique.afficher_fond();
 
     auto* gameEngine = new GameEngine();
-    auto semoule = new Welcome(gameEngine);
-    gameEngine->getRenderEngine()->run();
-    //gameEngine->getRenderEngine()->addPicture("../background/img.png");
+
+    auto* render = gameEngine->getRenderEngine();
+    //render->addPicture("../background/healthGauge.png");
+    //render->addPicture("../background/image_pokedex-20260914/pokemon/3.03.png");
+    while (render->isOpen()) {
+        gameEngine->getGameState()->update();
+        render->update();
+        render->draw();
+    }
+
     return 0;
 }

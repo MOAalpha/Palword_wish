@@ -15,7 +15,8 @@ void Welcome::update() {
 
 }
 void Welcome::render() {
-
+    auto* render = my_gameEngine->getRenderEngine();
+    render->addPicture("../background/img.png");
 }
 
 

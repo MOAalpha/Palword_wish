@@ -65,6 +65,7 @@ void Moacreature::setHitPoint(double nouveau_hitPoint) {
 
 /**
 * Attaque la créature cible si l'attaque est supérieure à la défense de la cible.
+* Si la cible meurt, ses points de vie sont remis à 1
  * @param cible
  * @return 0 si l'attaque a été encaissée, 1 si l'attaque a tué la creature.
  */

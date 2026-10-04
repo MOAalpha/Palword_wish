@@ -22,6 +22,7 @@ MoaDex::MoaDex(const string fileName):Collections_Moacreature() {
     std::ifstream file(fileName);
     if(!file.is_open()){
         std::cerr<<"File "<<fileName<<" not found "<<std::endl;
+        throw std::runtime_error("File not found");
         return;
     }
 
@@ -47,7 +48,7 @@ MoaDex::MoaDex(const string fileName):Collections_Moacreature() {
 
 
     }
-    collection.at(56)->displayInfo();
+
 }
 
 /**
@@ -58,7 +59,11 @@ MoaDex::MoaDex(const string fileName):Collections_Moacreature() {
 MoaDex *MoaDex::get_instance(const string &nom_de_fichier) {
     if (instance == nullptr) {
         if (instance == nullptr) {
-            instance = new MoaDex(nom_de_fichier);
+            try {
+                instance = new MoaDex(nom_de_fichier);
+            } catch (std::exception &e) {
+                std::cerr << "Erreur fichier Moadex (ou Pokedex)" << std::endl; std::cerr << e.what() << std::endl;
+            }
         }
     }
     return instance;

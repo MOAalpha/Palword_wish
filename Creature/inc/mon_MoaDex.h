@@ -16,10 +16,12 @@ private:
 public:
     mon_MoaDex()= default;
     void obtenir_creature(string nom_de_moacreature);
+    void obtenir_creature(int id);
     void supprimer_creature(string nom_de_moacreature);
     Moacreature* chercher_moacreature(string nom_de_moacreature) override;
     Moacreature* chercher_moacreature(int id) override;
-    int regenerer_moacreature(string nom_de_moacreature);
+    int regenerer_moacreature();
+    std::vector<Moacreature*> getCollection();
 
 
 };

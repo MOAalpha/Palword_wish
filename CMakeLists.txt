@@ -22,7 +22,17 @@ add_executable(Palword_wish Creature/src/main.cpp
         Engine/Src/GameEngine.cpp
         Engine/Inc/GameEngine.h
         Engine/Src/Welcome.cpp
-        Engine/Inc/Welcome.h)
+        Engine/Inc/Welcome.h
+        Creature/src/tests_creature.cpp
+        Creature/inc/tests_creature.h
+        Engine/Src/Playground.cpp
+        Engine/Inc/Playground.h
+        Engine/Src/Capture.cpp
+        Engine/Inc/Capture.h
+        Engine/Src/Combat.cpp
+        Engine/Inc/Combat.h
+        Engine/Src/GameOver.cpp
+        Engine/Inc/GameOver.h)
 
 target_link_libraries(Palword_wish
         sfml-graphics

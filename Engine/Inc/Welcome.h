@@ -19,9 +19,7 @@ class Welcome : public GameState {
 private:
     GameEngine* my_gameEngine=nullptr;
 public:
-    Welcome(GameEngine* gameEngine):my_gameEngine(gameEngine) {
-        std::cout << "Welcome to MoaLand ! Here you can search and become friends with beautiful creatures called MoaCreature." << std::endl;
-    }
+    Welcome(GameEngine* gameEngine);
 
     void key_actions() override;
     void render() override;
